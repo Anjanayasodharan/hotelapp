@@ -3,6 +3,7 @@ mydb = mysql.connector.connect(host = 'localhost' , user = 'root' , password = '
 mycursor = mydb.cursor()
 total=0
 item=[]
+l=[]
 while(True):
     print("select an option")
     print("1 Tea-----10rs")
@@ -17,52 +18,61 @@ while(True):
 
         print("Added tea")
         qty=int(input("enter the quantity"))
-        total+=10*qty
+        total=10*qty
+        l.append(total)
         item.append("tea x"+str(qty))
-        #print("quantity",qty)
-        #print("total",total)
+        print("quantity",qty)
+        print("total",total)
     elif(choice==2):
         print("added coffee")
         qty=int(input("enter the quantity"))
-        total+=15*qty
+        total=15*qty
+        l.append(total)
         item.append("coffee x"+str(qty))
-        #print("quantity",qty)
-        #print("total",total)
+        print("quantity",qty)
+        print("total",total)
     elif(choice==3):
         print("addedburger")
         qty=int(input("enter the quantity"))
-        total+=50*qty
+        total=50*qty
+        l.append(total)
         item.append("burger x"+str(qty))
-        #print("quantity",qty)
-        #print("total",total)
+        print("quantity",qty)
+        print("total",total)
     elif(choice==4):
         print("added mandhi")
-
         qty=int(input("enter the quantity"))
-
-        total+=180*qty
-
+        total=180*qty
+        l.append(total)
         item.append("mandhi x"+str(qty))
-
-        #print("quantity",qty)
-
-        #print("total",total)
+        print("quantity",qty)
+        print("total",total)
     elif(choice==5):
         print("added sandwitch")
-
-       
-
         qty=int(input("enter the quantity"))
-
-        total+=60*qty
-
+        total=60*qty
+        l.append(total)
         item.append("sandwitch x"+str(qty))
-
         print("quantity",qty)
-
         print("total",total)
     elif(choice==6):
-        print("generate bill")
+        print('You enter into billing section')
+        name = input('Enter the name : ')
+        phone = input('Enter the phone number : ')
+        #dates = input('Enter the date in the form of yyyy-mm-d : ')
+        l1 = []
+        l1.extend(l)
+        count = 0
+        for i in l1:
+           count = count + i
+           l.remove(i)
+        amount = count
+        # #print(f'Total amount {count} ')
+        sql = "INSERT INTO `hote`(`name`, `phno`, `date`,`amount`) VALUES (%s,%s,now(),%s)"
+        data = (name,phone,amount)
+        mycursor.execute(sql,data)
+        mydb.commit()
+        print('Thank you Welcome to next time ')
     elif(choice==7):
         break
         
