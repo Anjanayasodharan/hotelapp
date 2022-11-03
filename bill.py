@@ -14,6 +14,7 @@ while(True):
     print("6 generate bill")
     print("7 transaction details")
     print("8 transaction summary")
+    print("9 transaction period")
     print("10 exit")
     choice=int(input("enter the choice"))
     if(choice==1):
@@ -91,6 +92,12 @@ while(True):
         print(result)
     elif(choice==9):
         print('display the transaction for a period')
+        date1=input("enter the starting date")
+        date2=input("enter the ending date")
+        sql="SELECT SUM(`amount`) FROM `hote` WHERE `date`  BETWEEN '"+date1+"' AND '"+date2+"'"
+        mycursor.execute(sql)
+        result=mycursor.fetchall()
+        print(result)
     elif(choice==10):
         break
         
