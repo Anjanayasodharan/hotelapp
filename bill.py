@@ -94,7 +94,7 @@ while(True):
                 print("name=",i[0])
                 print("phno=",i[1])
                 print("date",i[2])
-            print(result)
+            
         except mysql.connector.Error as e:
             sys.exit("transaction details error")
     elif(choice==8):
@@ -109,7 +109,7 @@ while(True):
                 print("phno=",i[1])
                 print("date",i[2])
             
-            print(result)
+            
         except mysql.connector.Error as e:
             sys.exit("transaction summary error")
     elif(choice==9):
@@ -124,7 +124,7 @@ while(True):
                 print("name=",i[0])
                 print("phno=",i[1])
                 print("date",i[2])
-            print(result)
+            
         except mysql.connector.Error as e:
             sys.exit("transaction for a period error")   
     elif(choice==10):
