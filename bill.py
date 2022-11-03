@@ -12,7 +12,8 @@ while(True):
     print("4 mandhi----180rs")
     print("5 sandwitch--60")
     print("6 generate bill")
-    print("7 exit")
+    print("7 transaction details")
+    print("10 exit")
     choice=int(input("enter the choice"))
     if(choice==1):
 
@@ -74,6 +75,17 @@ while(True):
         mydb.commit()
         print('Thank you Welcome to next time ')
     elif(choice==7):
+        print('display the transaction details')
+        date=input('enter the date where you need the transaction details(yyyy-mm-d):')
+        sql="SELECT * FROM `hote` WHERE `date`='"+date+"'"
+        mycursor.execute(sql)
+        result=mycursor.fetchall()
+        print(result)
+    elif(choice==8):
+        print('display the transaction summary')
+    elif(choice==9):
+        print('display the transaction for a period')
+    elif(choice==10):
         break
         
 
