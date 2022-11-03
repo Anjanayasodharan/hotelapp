@@ -90,7 +90,11 @@ while(True):
             sql="SELECT * FROM `hote` WHERE `date`='"+date+"'"
             mycursor.execute(sql)
             result=mycursor.fetchall()
-            print(result)
+            for i in result:
+                print("name=",i[0])
+                print("phno=",i[1])
+                print("date",i[2])
+            
         except mysql.connector.Error as e:
             sys.exit("transaction details error")
     elif(choice==8):
@@ -100,7 +104,12 @@ while(True):
             sql = "SELECT `date`,SUM(`amount`)FROM `hote` WHERE `date` ='"+date+"'"
             mycursor.execute(sql)
             result=mycursor.fetchall()
-            print(result)
+            for i in result:
+                print("name=",i[0])
+                print("phno=",i[1])
+                print("date",i[2])
+            
+            
         except mysql.connector.Error as e:
             sys.exit("transaction summary error")
     elif(choice==9):
@@ -111,7 +120,11 @@ while(True):
             sql="SELECT SUM(`amount`) FROM `hote` WHERE `date`  BETWEEN '"+date1+"' AND '"+date2+"'"
             mycursor.execute(sql)
             result=mycursor.fetchall()
-            print(result)
+            for i in result:
+                print("name=",i[0])
+                print("phno=",i[1])
+                print("date",i[2])
+            
         except mysql.connector.Error as e:
             sys.exit("transaction for a period error")   
     elif(choice==10):
