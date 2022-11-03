@@ -44,11 +44,23 @@ while(True):
 
         item.append("mandhi x"+str(qty))
 
+        #print("quantity",qty)
+
+        #print("total",total)
+    elif(choice==5):
+        print("added sandwitch")
+
+       
+
+        qty=int(input("enter the quantity"))
+
+        total+=60*qty
+
+        item.append("sandwitch x"+str(qty))
+
         print("quantity",qty)
 
         print("total",total)
-    elif(choice==5):
-        print("added sandwitch")
     elif(choice==6):
         print("generate bill")
     elif(choice==7):
